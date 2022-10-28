@@ -89,9 +89,9 @@ Modules
    API/VisualArt
    API/util
    API/config
-   API/SampleMethod
-   API/CanteraTools
-   API/DataProcess
+   .. API/SampleMethod
+   .. API/CanteraTools
+   .. API/DataProcess
    API/utils_data
    API/MechConvert
    API/yaml2ck

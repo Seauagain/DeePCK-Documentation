@@ -1,5 +1,5 @@
 Setup
-=====
+======
 
 
 DeePCK is available for Python 3.8+ on Linux, macOS and Windows. 
