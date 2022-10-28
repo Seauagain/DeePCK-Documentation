@@ -1,0 +1,6 @@
+# Build and Release Folders
+
+docs/latex
+CanteraTools*
+SampleMethod*
+DataProcess*
