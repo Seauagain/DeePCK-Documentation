@@ -1,0 +1,176 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>util &#8212; DeePCK v1.0.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="config" href="config.html" />
+    <link rel="prev" title="VisualArt" href="VisualArt.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="module-util">
+<span id="util"></span><h1>util<a class="headerlink" href="#module-util" title="Permalink to this heading">¶</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="util.setup_device">
+<span class="sig-prename descclassname"><span class="pre">util.</span></span><span class="sig-name descname"><span class="pre">setup_device</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#util.setup_device" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the device for training and the default device is <cite>cuda:0</cite>. If torch.cuda is not available, use cpu instead.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="util.setup_seed">
+<span class="sig-prename descclassname"><span class="pre">util.</span></span><span class="sig-name descname"><span class="pre">setup_seed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#util.setup_seed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set random seed for python, numpy and torch.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="util.setup_current_time">
+<span class="sig-prename descclassname"><span class="pre">util.</span></span><span class="sig-name descname"><span class="pre">setup_current_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#util.setup_current_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set current time for <cite>.log</cite> file w.r.t differrent platforms.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="util.create_model_path">
+<span class="sig-prename descclassname"><span class="pre">util.</span></span><span class="sig-name descname"><span class="pre">create_model_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#util.create_model_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create the model folder and subfolders. Model folder contains five subfolders: <cite>checkpoint</cite>, <cite>lossfile</cite>, <cite>pic</cite>, <cite>data</cite>, <cite>log</cite>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="util.setup_logging">
+<span class="sig-prename descclassname"><span class="pre">util.</span></span><span class="sig-name descname"><span class="pre">setup_logging</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#util.setup_logging" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the settings for logging. The <cite>.log</cite> file will be saved in <cite>Model/your_model/log/</cite>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="util.logging_args">
+<span class="sig-prename descclassname"><span class="pre">util.</span></span><span class="sig-name descname"><span class="pre">logging_args</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#util.logging_args" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show hyper-parameters in the header of log file.</p>
+</dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">DeePCK</a></h1>
+
+
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=Seauagain&repo=DeePCK-Documentation&type=watch&count=true&size=large&v=2"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Setup/setup.html">Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Quick%20Start/quickstart.html">Quick Start</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Code API</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ModelDefine.html">ModelDefine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ModelTrain.html">ModelTrain</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataLoad.html">DataLoad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ModelUse.html">ModelUse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VisualArt.html">VisualArt</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SampleMethod.html">SampleMethod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanteraTools.html">CanteraTools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataProcess.html">DataProcess</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utils_data.html">utils_data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MechConvert.html">MechConvert</a></li>
+<li class="toctree-l1"><a class="reference internal" href="yaml2ck.html">yaml2ck</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="VisualArt.html" title="previous chapter">VisualArt</a></li>
+      <li>Next: <a href="config.html" title="next chapter">config</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, Yuxiao Yi.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.0.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/API/util.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+    <a href="https://github.com/Seauagain/DeePCK-Documentation" class="github">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"  class="github"/>
+    </a>
+    
+
+    
+  </body>
+</html>

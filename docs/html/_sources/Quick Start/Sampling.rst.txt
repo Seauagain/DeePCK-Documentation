@@ -1,0 +1,23 @@
+
+Sampling methods
+=================
+
+Zero-dimensional Sampling
+---------------------------
+
+
+One-dimensional Sampling
+-------------------------
+
+
+Multi-scale Sampling
+--------------------
+
+
+
+Modified Multi-scale Sampling
+------------------------------
+
+
+.. toctree::
+   :maxdepth: 2

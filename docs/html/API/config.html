@@ -1,0 +1,298 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>config &#8212; DeePCK v1.0.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="SampleMethod" href="SampleMethod.html" />
+    <link rel="prev" title="util" href="util.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="config">
+<h1>config<a class="headerlink" href="#config" title="Permalink to this heading">¶</a></h1>
+<p><p>Baseline for CKODE project</p>
+</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">python</span> <span class="n">trainModel</span><span class="o">.</span><span class="n">py</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">seed</span> <span class="n">SEED</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">mech_path</span> <span class="n">MECH_PATH</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">input_path</span> <span class="n">INPUT_PATH</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">label_path</span> <span class="n">LABEL_PATH</span><span class="p">]</span>
+                            <span class="p">[</span><span class="o">--</span><span class="n">shuffle</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">batch_size</span> <span class="n">BATCH_SIZE</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">valid_batch_size</span> <span class="n">VALID_BATCH_SIZE</span><span class="p">]</span>
+                            <span class="p">[</span><span class="o">--</span><span class="n">train_size</span> <span class="n">TRAIN_SIZE</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">valid_size</span> <span class="n">VALID_SIZE</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">valid_ratio</span> <span class="n">VALID_RATIO</span><span class="p">]</span>
+                            <span class="p">[</span><span class="o">--</span><span class="n">prefetch</span> <span class="n">PREFETCH</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">num_workers</span> <span class="n">NUM_WORKERS</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">pin_memory</span><span class="p">]</span>
+                            <span class="p">[</span><span class="o">--</span><span class="n">power_transform</span> <span class="n">POWER_TRANSFORM</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">delta_t</span> <span class="n">DELTA_T</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">dim</span> <span class="n">DIM</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">l</span> <span class="n">LAYERS</span> <span class="p">[</span><span class="n">LAYERS</span> <span class="o">...</span><span class="p">]]</span>
+                            <span class="p">[</span><span class="o">--</span><span class="n">net_type</span> <span class="n">NET_TYPE</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">actfun</span> <span class="n">ACTFUN</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">max_epoch</span> <span class="n">MAX_EPOCH</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">epoch_decay</span> <span class="n">EPOCH_DECAY</span><span class="p">]</span>
+                            <span class="p">[</span><span class="o">-</span><span class="n">lr</span> <span class="n">LEARNRATE</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">lr_decay_rate</span> <span class="n">LR_DECAY_RATE</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">batch_grow_rate</span> <span class="n">BATCH_GROW_RATE</span><span class="p">]</span>
+                            <span class="p">[</span><span class="o">--</span><span class="n">lossfun</span> <span class="n">LOSSFUN</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">optim</span> <span class="n">OPTIM</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">modelname</span> <span class="n">MODELNAME</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">model_path</span> <span class="n">MODEL_PATH</span><span class="p">]</span>
+                            <span class="p">[</span><span class="o">--</span><span class="n">device</span> <span class="n">DEVICE</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">n_gpu</span> <span class="n">N_GPU</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">DP</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">DDP</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">local_rank</span> <span class="n">LOCAL_RANK</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">ws</span> <span class="n">WORLD_SIZE</span><span class="p">]</span>
+                            <span class="p">[</span><span class="o">--</span><span class="n">backend</span> <span class="n">BACKEND</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">note</span> <span class="n">DESCRIPTION</span><span class="p">]</span>
+</pre></div>
+</div>
+<section id="Named Arguments">
+<h2>Named Arguments<a class="headerlink" href="#Named Arguments" title="Permalink to this heading">¶</a></h2>
+<dl class="option-list">
+<dt><kbd>--seed</kbd></dt>
+<dd><p>random seed</p>
+<p>Default: 2022</p>
+</dd>
+<dt><kbd>--mech_path</kbd></dt>
+<dd><p>chemical mechnism file dir</p>
+</dd>
+<dt><kbd>--input_path</kbd></dt>
+<dd><p>input dataset dir</p>
+</dd>
+<dt><kbd>--label_path</kbd></dt>
+<dd><p>label dataset dir</p>
+</dd>
+<dt><kbd>--shuffle</kbd></dt>
+<dd><p>shuffle the training dataset</p>
+<p>Default: True</p>
+</dd>
+<dt><kbd>--batch_size</kbd></dt>
+<dd><p>use for training duration per worker</p>
+<p>Default: 1024</p>
+</dd>
+<dt><kbd>--valid_batch_size</kbd></dt>
+<dd><p>use for validation duration per worker</p>
+<p>Default: 8192</p>
+</dd>
+<dt><kbd>--train_size</kbd></dt>
+<dd><p>training dataset size</p>
+</dd>
+<dt><kbd>--valid_size</kbd></dt>
+<dd><p>validation dataset size</p>
+</dd>
+<dt><kbd>--valid_ratio</kbd></dt>
+<dd><p>split percentages of training data as validation</p>
+<p>Default: 0.1</p>
+</dd>
+<dt><kbd>--prefetch</kbd></dt>
+<dd><p>use for training duration per worker</p>
+<p>Default: 10</p>
+</dd>
+<dt><kbd>--num_workers</kbd></dt>
+<dd><p>num_workers for dataloaders</p>
+<p>Default: 16</p>
+</dd>
+<dt><kbd>--pin_memory</kbd></dt>
+<dd><p>pin_memory for DataLoader</p>
+<p>Default: True</p>
+</dd>
+<dt><kbd>--power_transform</kbd></dt>
+<dd><p>power_transform for BCT</p>
+<p>Default: 0.1</p>
+</dd>
+<dt><kbd>--delta_t</kbd></dt>
+<dd><p>dnn time step</p>
+<p>Default: 1e-06</p>
+</dd>
+<dt><kbd>--dim</kbd></dt>
+<dd><p>feature dimention of data</p>
+<p>Default: -1</p>
+</dd>
+<dt><kbd>-l, --layers</kbd></dt>
+<dd><p>dnn hidden layers</p>
+<p>Default: [1600, 800, 400]</p>
+</dd>
+<dt><kbd>--net_type</kbd></dt>
+<dd><p>dnn type</p>
+<p>Default: “fc”</p>
+</dd>
+<dt><kbd>--actfun</kbd></dt>
+<dd><p>activation function</p>
+<p>Default: “gelu”</p>
+</dd>
+<dt><kbd>--max_epoch</kbd></dt>
+<dd><p>max epochs in training</p>
+<p>Default: 5000</p>
+</dd>
+<dt><kbd>--epoch_decay</kbd></dt>
+<dd><p>epoch interval for lr decay</p>
+<p>Default: 2500</p>
+</dd>
+<dt><kbd>-lr, --learnrate</kbd></dt>
+<dd><p>Default: 0.0001</p>
+</dd>
+<dt><kbd>--lr_decay_rate</kbd></dt>
+<dd><p>learning rate decay</p>
+<p>Default: 0.1</p>
+</dd>
+<dt><kbd>--batch_grow_rate</kbd></dt>
+<dd><p>every [epoch_decay] batch_size grows</p>
+<p>Default: 128</p>
+</dd>
+<dt><kbd>--lossfun</kbd></dt>
+<dd><p>loss funtion: MSE,L1/MAE,CEl</p>
+<p>Default: “L1”</p>
+</dd>
+<dt><kbd>--optim</kbd></dt>
+<dd><p>optimizer for training</p>
+<p>Default: “Adam”</p>
+</dd>
+<dt><kbd>--modelname</kbd></dt>
+<dd><p>the dnn model name</p>
+</dd>
+<dt><kbd>--model_path</kbd></dt>
+<dd><p>the dnn model dir</p>
+</dd>
+<dt><kbd>--device</kbd></dt>
+<dd><p>device setup</p>
+<p>Default: “cuda:0”</p>
+</dd>
+<dt><kbd>--n_gpu</kbd></dt>
+<dd><p>gpu numbers of the machine</p>
+<p>Default: 0</p>
+</dd>
+<dt><kbd>-DP, --use_DP</kbd></dt>
+<dd><p>whether use torch.nn.DataParallel</p>
+<p>Default: False</p>
+</dd>
+<dt><kbd>-DDP, --use_DDP</kbd></dt>
+<dd><p>whether use DistributedDataParallel</p>
+<p>Default: False</p>
+</dd>
+<dt><kbd>--local_rank</kbd></dt>
+<dd><p>local rank</p>
+<p>Default: -1</p>
+</dd>
+<dt><kbd>-ws, --world_size</kbd></dt>
+<dd><p>world_size for DDP</p>
+<p>Default: 1</p>
+</dd>
+<dt><kbd>--backend</kbd></dt>
+<dd><p>current process backend for DDP, gloo,nccl,mpi</p>
+<p>Default: “nccl”</p>
+</dd>
+<dt><kbd>-note, --description</kbd></dt>
+<dd><p>description of the experiment(purpose/target/motivation)</p>
+<p>Default: “test”</p>
+</dd>
+</dl>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">DeePCK</a></h1>
+
+
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=Seauagain&repo=DeePCK-Documentation&type=watch&count=true&size=large&v=2"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Setup/setup.html">Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Quick%20Start/quickstart.html">Quick Start</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Code API</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ModelDefine.html">ModelDefine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ModelTrain.html">ModelTrain</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataLoad.html">DataLoad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ModelUse.html">ModelUse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VisualArt.html">VisualArt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="util.html">util</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">config</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Named Arguments">Named Arguments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="SampleMethod.html">SampleMethod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanteraTools.html">CanteraTools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataProcess.html">DataProcess</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utils_data.html">utils_data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MechConvert.html">MechConvert</a></li>
+<li class="toctree-l1"><a class="reference internal" href="yaml2ck.html">yaml2ck</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="util.html" title="previous chapter">util</a></li>
+      <li>Next: <a href="SampleMethod.html" title="next chapter">SampleMethod</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, Yuxiao Yi.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.0.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/API/config.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+    <a href="https://github.com/Seauagain/DeePCK-Documentation" class="github">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"  class="github"/>
+    </a>
+    
+
+    
+  </body>
+</html>

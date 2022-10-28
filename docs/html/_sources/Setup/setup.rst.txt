@@ -1,0 +1,70 @@
+Setup
+=====
+
+
+DeePCK is available for Python 3.8+ on Linux, macOS and Windows. 
+
+
+Install with conda
+------------------
+
+1. Install ``numpy`` and visualization packages for basic usage.
+
+.. code:: bash
+
+   conda install numpy matplotlib seaborn
+
+2. DeePCK depends on ``cantera``, so use ``cantera/label/dev`` channel to install ``cantera`` .
+
+.. code:: bash
+   
+   conda install --channel cantera/label/dev cantera
+
+3. The implementation of `Model Module` is based on the deep learning framework ``pytorch``, install ``pytorch`` CPU version  via ``conda``.
+   
+.. code:: bash
+
+   conda install pytorch
+
+3. Note:  if you prefer training the DNN model on GPU, you might need to install ``pytorch`` GPU version. 
+   The GPU version requires compatible NVIDIA drivers to be installed already. 
+   Therefore, check the CUDA driver version on your platform and see the installation guide on `Pytorch offical website <https://pytorch.org/get-started/locally/>`_. 
+   For CUDA version 10.1, run the command for instance: 
+
+.. code:: bash
+
+   conda install pytorch=1.7 torchvision cudatoolkit=10.1 -c pytorch 
+
+4. ``easydict`` allows to access dict values as attributes and then install it via ``conda`` :
+
+.. code:: bash
+
+   conda install -c conda-forge easydict 
+
+or via ``pip`` :
+
+.. code:: bash
+
+   pip install easydict
+
+5. (optional) If you are working on the HPC Clusters scheduled with `slurm system <https://docs.hpc.sjtu.edu.cn/job/slurm.html>`_, it is highly recommended 
+   to install ``mpi4py`` for massive parallelization via ``conda`` (especielly for `Data Module`). Check `mpi4py documentation <https://mpi4py.readthedocs.io/en/stable/>`_ for more instruction.
+
+.. code:: bash
+
+   conda install -c conda-forge mpi4py openmpi
+
+
+
+
+
+
+
+Install with docker
+--------------------
+
+To be continued.
+ 
+
+.. toctree::
+   :maxdepth: 2

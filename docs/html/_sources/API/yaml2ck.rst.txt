@@ -1,0 +1,7 @@
+yaml2ck
+=======
+
+.. automodule:: yaml2ck
+   :members:
+   :undoc-members:
+   :show-inheritance:

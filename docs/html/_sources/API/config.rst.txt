@@ -1,0 +1,8 @@
+config
+========
+
+.. argparse:: 
+   :module: config
+   :func:  parser
+   :prog: python trainModel.py 
+

@@ -1,0 +1,7 @@
+MechConvert
+===========
+
+.. automodule:: MechConvert
+   :members:
+   :undoc-members:
+   :show-inheritance:

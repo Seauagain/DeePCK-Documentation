@@ -1,0 +1,107 @@
+.. DeePCK documentation master file, created by
+   sphinx-quickstart on Wed Aug 17 21:17:38 2022.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+
+DeePCK |release|
+================
+
+|Build Status| |GitHub release| |Documentation Status| |Last Commit| |Sphinx|
+
+.. |Build Status| image:: https://img.shields.io/badge/build-passing-brightgreen.svg
+   :target: https://github.com/Seauagain/DeePCK-Documentation
+
+.. |GitHub release| image:: https://img.shields.io/github/release/Seauagain/DeePCK-Documentation.svg
+   :target: https://github.com/Seauagain/DeePCK-Documentation/releases/
+
+.. |Documentation Status| image:: https://readthedocs.org/projects/deepck/badge/?version=latest
+   :target: https://deepck.readthedocs.io/en/latest/
+
+.. |Last Commit| image:: https://img.shields.io/github/last-commit/Seauagain/DeePCK-Documentation?color=orange
+   :target: https://github.com/Seauagain/DeePCK-Documentation/commit/main
+
+.. |Sphinx| image:: https://img.shields.io/badge/Made%20with-Sphinx-1f425f.svg
+
+
+
+.. only:: html or man
+
+   :Author:   Yuxiao Yi
+   :Contact:  yxyee@foxmail.com
+   :Date:     |today|
+
+
+**DeePCK** is a Python package and aims at building alternative DNN models for 
+Chemical Kinetics stiff Ordinary Differential Equations in numerical combustion simulation.
+DeePCK consists of three fundamental modules: *Dataset*, *Model* and *Visualization*.
+The source code of DeePCK will be publicly released on GitHub in the future.
+Further theoretical and technical details could be viewed in the paper: CombustFlame2022_
+
+.. _CombustFlame2022: https://doi.org/10.1016/j.combustflame.2022.112319
+
+The *Dataset Module* currently provide several sampling  methods, such as adaptive zero dimensional
+manifold (**zero D**), one dimensional flame (**one D**), multi-scale sampling (**MS**) and modified multi-scale sampling methods (**MMS**). 
+Besides, the label generating tool and data processing procedure are also included. All of them support massive parallelization via ``multiprocessing`` or ``MPI``.
+
+The *Model Module* deals with the framework design and training procedure of deep neural networks (DNNs), and the calling of DNNs for downstream tasks  e.g. single-step prediction 
+or temporal evolution. For instance, fig. :num:`zero` demostrates the zero-dimensional homogeous ignition process of CH4/air mixture simulated by Cantera and a well-trained DNN, respectively.
+
+.. _zero:
+.. figure:: _pic/Methane_GRI3.0_134wAdapManCH4constP_2022-07-31_Phi=1_T=1600_P=1_epoch=5000_all1.png
+   :width: 90%
+   :class: no-scaled-link
+   :align: center
+
+   .. 
+
+   Fig :num:`zero` : Auto-ignition of CH4/air mixture.
+
+Then the `Visualization Module` offers the interface to draw distribution and phase diagrams w.r.t typical chemical/thermodynamic datasets organized as :math:`T,P,Y`.
+
+The model provided by DeePCK has coupled with stardand CFD codes to replace classical ODE solvers and shows promosing robustness and accuracy in high-dimensional flame simulation. 
+We will continue to improve the corresponding source code package and documentation. If you have any issue or suggestion, feel free to contact the author via the email.
+
+
+User Guide
+==========
+
+.. toctree::
+   :maxdepth: 2
+
+   Setup/setup.rst
+   Quick Start/quickstart.rst
+
+.. set caption by  :caption: Contents:
+
+
+Modules
+========
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Code API
+
+   API/ModelDefine
+   API/ModelTrain
+   API/DataLoad
+   API/ModelUse
+   API/VisualArt
+   API/util
+   API/config
+   API/SampleMethod
+   API/CanteraTools
+   API/DataProcess
+   API/utils_data
+   API/MechConvert
+   API/yaml2ck
+
+   
+    
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`

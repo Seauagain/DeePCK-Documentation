@@ -1,0 +1,338 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>ModelUse &#8212; DeePCK v1.0.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="VisualArt" href="VisualArt.html" />
+    <link rel="prev" title="DataLoad" href="DataLoad.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="module-ModelUse">
+<span id="modeluse"></span><h1>ModelUse<a class="headerlink" href="#module-ModelUse" title="Permalink to this heading">¶</a></h1>
+<p>Utilize the trained neural network to finish downstream tasks.</p>
+<p>Created on Wed Jul 27 22:30:20 2022
+&#64;author: Yuxiao Yi</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="ModelUse.ModelUse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ModelUse.</span></span><span class="sig-name descname"><span class="pre">ModelUse</span></span><a class="headerlink" href="#ModelUse.ModelUse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.10/library/functions.html#object" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="ModelUse.ModelUse.initGas">
+<span class="sig-name descname"><span class="pre">initGas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mech_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ModelUse.ModelUse.initGas" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiate cantera.Solution object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mech_path</strong> (<a class="reference external" href="https://docs.python.org/3.10/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – Mechanism input file, could be .yaml, .xml or .cti format.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ModelUse.ModelUse.buildModel">
+<span class="sig-name descname"><span class="pre">buildModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ModelUse.ModelUse.buildModel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a neural network.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ModelUse.ModelUse.loadModel">
+<span class="sig-name descname"><span class="pre">loadModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modelname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epoch</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ModelUse.ModelUse.loadModel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load a checkpoint, args and norm on cpu.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ModelUse.ModelUse.json2Parser">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">json2Parser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">json_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ModelUse.ModelUse.json2Parser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load json and return a parser-like object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>json_path</strong> (<a class="reference external" href="https://docs.python.org/3.10/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – The json file path.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>args</strong> – A parser-like object.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>easydict.EasyDict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ModelUse.ModelUse.ctOneStep">
+<span class="sig-name descname"><span class="pre">ctOneStep</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta_t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reactor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">builtin_t</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ModelUse.ModelUse.ctOneStep" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use Cantera to advance the state of the reactor network from the current time <span class="math notranslate nohighlight">\(t\)</span> towards <span class="math notranslate nohighlight">\(t+\Delta t\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>state</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><em>numpy.ndarray</em></a>) – State vector organized as T,P(atm),Y.</p></li>
+<li><p><strong>delta_t</strong> (<a class="reference external" href="https://docs.python.org/3.10/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – Evolution time step (sec).</p></li>
+<li><p><strong>reactor</strong> (<a class="reference external" href="https://docs.python.org/3.10/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – The type of reactor, could be ‘constP’ or ‘constV’.</p></li>
+<li><p><strong>builtin_t</strong> (<a class="reference external" href="https://docs.python.org/3.10/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – Max time step for CVODE in Cantera.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>state_out</strong> – The output state vector after <span class="math notranslate nohighlight">\(\Delta t\)</span> which is organized as T,P(atm),Y.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)">numpy.ndarray</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ModelUse.ModelUse.netOneStep">
+<span class="sig-name descname"><span class="pre">netOneStep</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ModelUse.ModelUse.netOneStep" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use DNN to advance the state of the reactor network from the current time <span class="math notranslate nohighlight">\(t\)</span> towards <span class="math notranslate nohighlight">\(t+\Delta t\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>state</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><em>numpy.ndarray</em></a>) – State vector organized as T,P(atm),Y.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>output_bct</strong> – The output state vector after <span class="math notranslate nohighlight">\(\Delta t\)</span> which is organized as T,P(atm),Y.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)">numpy.ndarray</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ModelUse.ModelUse.inverBCT">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">inverBCT</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lamda</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ModelUse.ModelUse.inverBCT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ModelUse.ModelUse.evolutionPredict">
+<span class="sig-name descname"><span class="pre">evolutionPredict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modelname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epoch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gas_condition</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_step</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">builtin_t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plotAll</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dpi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">200</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ModelUse.ModelUse.evolutionPredict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Temporal evolution simulation computed by DNN and Cantera, respectively. The simualtion will be saved as .png.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>modelname</strong> (<a class="reference external" href="https://docs.python.org/3.10/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – The folder name of DNN model.</p></li>
+<li><p><strong>epoch</strong> (<a class="reference external" href="https://docs.python.org/3.10/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – Epoch for loading checkpoint.</p></li>
+<li><p><strong>gas_condition</strong> (<a class="reference external" href="https://docs.python.org/3.10/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3.10/library/stdtypes.html#tuple" title="(in Python v3.10)"><em>tuple</em></a>) – Initial conditions for zero dimensional ignition. Organized as [Phi,T,P(atm),fuel,reactor].
+<strong>Phi</strong>: equivalence ratio. <strong>T</strong>: temperature (K). <strong>P</strong>: pressure (atm). <strong>fuel</strong>: fuel species name. <strong>reactor</strong>: reactor type.</p></li>
+<li><p><strong>n_step</strong> (<a class="reference external" href="https://docs.python.org/3.10/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – Simulation steps, time step = args.delta_t.</p></li>
+<li><p><strong>builtin_t</strong> (<a class="reference external" href="https://docs.python.org/3.10/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – Max time step for CVODES in Cantera.</p></li>
+<li><p><strong>plotAll</strong> (<a class="reference external" href="https://docs.python.org/3.10/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>,</em><em>optional</em>) – Whether plot all the features (T,P,Yi), if True plot all else plot temperature. Default False.</p></li>
+<li><p><strong>dpi</strong> (<a class="reference external" href="https://docs.python.org/3.10/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>,</em><em>optional</em>) – The dpi used to save figure. Default 200.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ModelUse.ModelUse.plotTemperature">
+<span class="sig-name descname"><span class="pre">plotTemperature</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modelname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epoch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gas_condition</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state_net</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state_cantera</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dpi</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ModelUse.ModelUse.plotTemperature" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draw and save the ignition curves simulated by Cantera and DNN.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>modelname</strong> (<a class="reference external" href="https://docs.python.org/3.10/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – The folder name of DNN model.</p></li>
+<li><p><strong>epoch</strong> (<a class="reference external" href="https://docs.python.org/3.10/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – Epoch for loading checkpoint.</p></li>
+<li><p><strong>gas_condition</strong> (<a class="reference external" href="https://docs.python.org/3.10/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3.10/library/stdtypes.html#tuple" title="(in Python v3.10)"><em>tuple</em></a>) – Initial conditions for zero dimensional ignition. Organized as [Phi,T,P(atm),fuel,reactor].
+<strong>Phi</strong>: equivalence ratio. <strong>T</strong>: temperature (K). <strong>P</strong>: pressure (atm). <strong>fuel</strong>: fuel species name. <strong>reactor</strong>: reactor type.</p></li>
+<li><p><strong>state_net</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><em>numpy.ndarray</em></a>) – The n-step continuous evolution simulated by DNN.</p></li>
+<li><p><strong>state_cantera</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><em>numpy.ndarray</em></a>) – The n-step continuous evolution simulated by Cantera.</p></li>
+<li><p><strong>dpi</strong> (<a class="reference external" href="https://docs.python.org/3.10/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The dpi used to save figure.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ModelUse.ModelUse.plotAll">
+<span class="sig-name descname"><span class="pre">plotAll</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modelname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epoch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gas_condition</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state_net</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state_cantera</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dpi</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ModelUse.ModelUse.plotAll" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draw and save the evolution of temperature, pressure and species mass fraction simulated by Cantera and DNN.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>modelname</strong> (<a class="reference external" href="https://docs.python.org/3.10/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – The folder name of DNN model.</p></li>
+<li><p><strong>epoch</strong> (<a class="reference external" href="https://docs.python.org/3.10/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – Epoch for loading checkpoint.</p></li>
+<li><p><strong>gas_condition</strong> (<a class="reference external" href="https://docs.python.org/3.10/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3.10/library/stdtypes.html#tuple" title="(in Python v3.10)"><em>tuple</em></a>) – Initial conditions for zero dimensional ignition. Organized as [Phi,T,P(atm),fuel,reactor].
+<strong>Phi</strong>: equivalence ratio. <strong>T</strong>: temperature (K). <strong>P</strong>: pressure (atm). <strong>fuel</strong>: fuel species name. <strong>reactor</strong>: reactor type.</p></li>
+<li><p><strong>state_net</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><em>numpy.ndarray</em></a>) – The n-step continuous evolution simulated by DNN.</p></li>
+<li><p><strong>state_cantera</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><em>numpy.ndarray</em></a>) – The n-step continuous evolution simulated by Cantera.</p></li>
+<li><p><strong>dpi</strong> (<a class="reference external" href="https://docs.python.org/3.10/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The dpi used to save figure.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ModelUse.ModelUse.oneStepPredict">
+<span class="sig-name descname"><span class="pre">oneStepPredict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modelname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epoch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_dims</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'all'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dpi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">200</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ModelUse.ModelUse.oneStepPredict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draw and save single-step prediction of DNN w.r.t an chemical test dataset. The ordinate axis is DNN prediction  while abscissa axis is
+the corresponding label. The scatter plot will be saved in .png format.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>modelname</strong> (<a class="reference external" href="https://docs.python.org/3.10/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – The folder name of DNN model.</p></li>
+<li><p><strong>epoch</strong> (<a class="reference external" href="https://docs.python.org/3.10/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – Epoch for loading checkpoint.</p></li>
+<li><p><strong>input</strong> (<a class="reference external" href="https://docs.python.org/3.10/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><em>numpy.ndarray</em></a>) – Input dataset, could be file path or numpy.ndarray.</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3.10/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><em>numpy.ndarray</em></a>) – Label dataset, could be file path or numpy.ndarray.</p></li>
+<li><p><strong>data_name</strong> (<a class="reference external" href="https://docs.python.org/3.10/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – The data name suffix to save figure.</p></li>
+<li><p><strong>plot_dims</strong> (<a class="reference external" href="https://docs.python.org/3.10/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>,</em><a class="reference external" href="https://docs.python.org/3.10/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3.10/library/stdtypes.html#tuple" title="(in Python v3.10)"><em>tuple</em></a><em>,</em><em>optional</em>) – List of dimensions expected to be plotted e.g. [1,4,5,7] or Range(20) or [‘T’,’O’,’CH4’,’N2’].
+Default string ‘all’ means plotting all the dimensions.</p></li>
+<li><p><strong>dpi</strong> (<a class="reference external" href="https://docs.python.org/3.10/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The dpi used to save figure. Default 200.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>prediction</strong> – DNN model one-step prediction on the input dataset.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)">numpy.ndarray</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ModelUse.ModelUse._oneStepPredPlot">
+<span class="sig-name descname"><span class="pre">_oneStepPredPlot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modelname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epoch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prediction</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dpi</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ModelUse.ModelUse._oneStepPredPlot" title="Permalink to this definition">¶</a></dt>
+<dd><p>The built-in function to plot and save one-step prediction.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ModelUse.ModelUse._latexStyle">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">_latexStyle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ModelUse.ModelUse._latexStyle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert the given text to <span class="math notranslate nohighlight">\(\LaTeX\)</span> bold style e.g. T–&gt;$\bf{T}$, CH4–&gt;$\bf{CH_{4}}$, C10H18O8–&gt;$\bf{C_{10}H_{18}O_{8}}$</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ModelUse.ModelUse._latexStyleName">
+<span class="sig-name descname"><span class="pre">_latexStyleName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ModelUse.ModelUse._latexStyleName" title="Permalink to this definition">¶</a></dt>
+<dd><p>For a chemical dataset (TPY), the state names could be denoted as [‘T’,’P’,…species names]. Convert state_names[index] to
+<span class="math notranslate nohighlight">\(\LaTeX\)</span> bold style if there exists <span class="math notranslate nohighlight">\(\LaTeX\)</span> enviroment.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">DeePCK</a></h1>
+
+
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=Seauagain&repo=DeePCK-Documentation&type=watch&count=true&size=large&v=2"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Setup/setup.html">Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Quick%20Start/quickstart.html">Quick Start</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Code API</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ModelDefine.html">ModelDefine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ModelTrain.html">ModelTrain</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataLoad.html">DataLoad</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ModelUse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VisualArt.html">VisualArt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="util.html">util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SampleMethod.html">SampleMethod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanteraTools.html">CanteraTools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataProcess.html">DataProcess</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utils_data.html">utils_data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MechConvert.html">MechConvert</a></li>
+<li class="toctree-l1"><a class="reference internal" href="yaml2ck.html">yaml2ck</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="DataLoad.html" title="previous chapter">DataLoad</a></li>
+      <li>Next: <a href="VisualArt.html" title="next chapter">VisualArt</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, Yuxiao Yi.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.0.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/API/ModelUse.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+    <a href="https://github.com/Seauagain/DeePCK-Documentation" class="github">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"  class="github"/>
+    </a>
+    
+
+    
+  </body>
+</html>

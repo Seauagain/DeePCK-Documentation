@@ -1,0 +1,13 @@
+@import url("default.css");
+
+span.caption-text {
+    font-size: 25px;
+}
+
+/* .wy-table-responsive table td {
+    white-space: normal !important;
+}
+
+.wy-table-responsive {
+    overflow: visible !important;
+} */
